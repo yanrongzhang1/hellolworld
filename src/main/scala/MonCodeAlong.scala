@@ -34,6 +34,7 @@ object MonCodeAlong extends App {
   val b: Int = 5
   val c: Int = 3
 
+
   val add: Int = a + b
   val subtract: Int = a - b
   val divide: Int = a / b
@@ -72,27 +73,38 @@ object MonCodeAlong extends App {
   //Write me a method that calculates the final price of a product with VAT
 
   def priceWithVAT(price: Double): Double = {
-//    val finalPrice: Double = price * vat
-//    finalPrice
+    //    val finalPrice: Double = price * vat
+    //    finalPrice
     price * vat
   }
+
 
   println(priceWithVAT(10.0))
 
   //CLASSES ( think of these as a type)
   //THIS IS MY INSTRUCTION - Doesn't mean a lot by iteself
-  class Dog(val name: String, val age: Int,  val likesBananas: Boolean) {
+  class Dog(val name: String, val nickName: String, val age: Int, val likesBananas: Boolean) {
     val hasEars: Boolean = true //default parameters
+
     def speak: String = "woof" //declared in advance as it is the same for every dog
   }
 
+
   //Use the class to make objects( e.g. Dog)
   //Object of type Dog
-  val loki:Dog = new Dog("Loki", 5, true)
+  val loki: Dog = new Dog("Loki", "Lo", 5, true)
   //How do I access?
   println(loki.speak)
   println(loki.name)
 
+
+  def helloWorld(): Unit = {
+    println("Hello, World!")
+  }
+
+
+  val result: Unit = helloWorld()
+  println(result)
 
 
 }
