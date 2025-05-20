@@ -37,7 +37,8 @@ object MonCodeAlong extends App {
 
   val add: Int = a + b
   val subtract: Int = a - b
-  val divide: Int = a / b
+  val divide: Double = a / c
+  println(s"Divide 10 by 3 = $divide")
   val multiply: Int = a * b
   val modulus: Int = a % c //10 % 3 (what is the remainder)
 
@@ -106,5 +107,8 @@ object MonCodeAlong extends App {
   val result: Unit = helloWorld()
   println(result)
 
+
+  val addition = (number: Int) => number + 1
+  println(addition(1))
 
 }
