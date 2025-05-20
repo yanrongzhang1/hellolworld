@@ -101,21 +101,26 @@ object TueCollectionCodeAlong extends App {
     _ + 1
   }
 
+  println("Set add one - method: " + addOneSet(firstSet))
 
-//  println("\nStep 2: How to check if a particular element exists in the sequence using the exists function")
-//  val doesPlainDonutExists: Boolean = donuts.exists(donutName => donutName == "Plain Donut")
-//  println(s"Does Plain Donut exists = $doesPlainDonutExists")
+  val addOneSeq = firstSeq.map(_ + 1)
+  println("Seq add one: " + addOneSeq)
+
+  //  println("\nStep 2: How to check if a particular element exists in the sequence using the exists function")
+  //  val doesPlainDonutExists: Boolean = donuts.exists(donutName => donutName == "Plain Donut")
+  //  println(s"Does Plain Donut exists = $doesPlainDonutExists")
 
 
-  def checkContainsLetterR(nameSeq:Seq[String]) :Boolean = nameSeq.exists(word => word.contains('r'))
-  val containsLetterR:Boolean = nameSeq.exists(name => name.contains("r"))
+  def checkContainsLetterR(nameSeq: Seq[String]): Boolean = nameSeq.exists(word => word.contains('r'))
 
-  println("Check Contains Letter R: ", checkContainsLetterR(nameSeq))
-  println("Contains Letter R: ", containsLetterR)
+  val containsLetterR: Boolean = nameSeq.exists(name => name.contains("r"))
+
+  println("Check Contains Letter R: " + checkContainsLetterR(nameSeq))
+  println("Contains Letter R: " + containsLetterR)
   //
-    val oddNumberOnly: Set[Int] = firstSet.filter{
-      number => number %2 != 0
-    }
+  val oddNumberOnly: Set[Int] = firstSet.filter {
+    number => number % 2 != 0
+  }
   println("Odd Numbers Only Set: " + oddNumberOnly)
 
   val flatMapNames: Seq[Char] = nameSeq.flatMap(_.toUpperCase) //get letter out of list
@@ -125,8 +130,8 @@ object TueCollectionCodeAlong extends App {
   val newSeq: Seq[Int] = Seq(6, 7, 8)
   //Append - add to end
   val appendedListOne = firstSeq :+ newSeq
-
   println("Append :+ " + appendedListOne)
+
   val appendListTwo = firstSeq ++ newSeq
   println("Append ++" + appendListTwo)
 
@@ -141,7 +146,13 @@ object TueCollectionCodeAlong extends App {
   println(prependValue)
 
 
-
+//  val prependSpecificReturnType: Seq[Seq[Int]] = newSeq +: Seq(firstSeq)
+  val prependSpecificReturnType = newSeq +: Seq(firstSeq)
+  println(prependSpecificReturnType)
+  val plusOneFlatMap = prependSpecificReturnType.flatMap(_.map(_ + 1)) //flatMap will escape out of the nested list, then we map through to add 1
+  println(plusOneFlatMap)
+  println(prependSpecificReturnType.flatten) //can use flatten rather than flatMap with nested structures
+  //A flatMap basically maps and then flatterns
 
   //prependSeqTwo.flatMap(_+1)
 }
