@@ -1,4 +1,4 @@
-object AfternoonTasks extends App {
+object MonAfternoonTasks extends App {
   //Task 1
 
   val answer1_a = (3 + 4) * 57 < 300 //false

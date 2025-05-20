@@ -13,7 +13,7 @@ object TueCollectionCodeAlong extends App {
     "three" -> 3,
     "four" -> 4,
     "five" -> 5,
-    "five" -> 5 // will remove when compiled (doesn't throw and error)
+    "five" -> 5 // will remove when compiled (doesn't throw an error)
   )
 
   println("First Map: " + firstMap)
@@ -47,6 +47,8 @@ object TueCollectionCodeAlong extends App {
   //find(number => number._2 == 1) (number => number same as _)
   val getMapKey: String = firstMap.find(_._2 == 3).get._1 // find the value that is equal to 1 and get the key that matches it.
   println("Get Map Key: " + getMapKey)
+  val filterMapByValue: Map[String, Int] = firstMap.filter(_._2 == 3)
+  println("Filter Map by value: ", filterMapByValue)
 
 
   val nameSeq: Seq[String] = Seq("Alex", "Adam", "Jane", "Emily")
@@ -63,8 +65,8 @@ object TueCollectionCodeAlong extends App {
 
 
   val numberSet: Set[Int] = Set(1, 2, 5, 6, 8, 10)
-  val hightThanTwoSet = numberSet.filter(_ > 2)
-  println("Higher than 2 set: ", hightThanTwoSet)
+  val higherThanTwoSet = numberSet.filter(_ > 2)
+  println("Higher than 2 set: ", higherThanTwoSet)
 
   //map (method = lowercase 'm')
   //use a map to iterate (move through) a collection
@@ -92,22 +94,29 @@ object TueCollectionCodeAlong extends App {
   println("tripledMap: " + tripledMap(firstMap))
 
 
-  //.exists = all that could be (get colleciton back)
+  //.exists = all that could be (get a collection back)
   //.contains (check - true/false - boolean)
 
   def addOneSet(inputSet: Set[Int]): Set[Int] = inputSet.map {
     _ + 1
   }
 
-  //def checkContainsLetterR(inptSeq:Seq[String])] :Boolean =
-  //nameSeq.exists(word => word.contains('r'))
+
+//  println("\nStep 2: How to check if a particular element exists in the sequence using the exists function")
+//  val doesPlainDonutExists: Boolean = donuts.exists(donutName => donutName == "Plain Donut")
+//  println(s"Does Plain Donut exists = $doesPlainDonutExists")
+
+
+  def checkContainsLetterR(nameSeq:Seq[String]) :Boolean = nameSeq.exists(word => word.contains('r'))
+  val containsLetterR:Boolean = nameSeq.exists(name => name.contains("r"))
+
+  println("Check Contains Letter R: ", checkContainsLetterR(nameSeq))
+  println("Contains Letter R: ", containsLetterR)
   //
-  //  val oddNumberOnly = firstset.filter{
-  //    number => number %2 != 0
-  //  }
-  //
-  //  val containsR:Boolean = names.exists(name => name.contains("r"))
-  //}
+    val oddNumberOnly: Set[Int] = firstSet.filter{
+      number => number %2 != 0
+    }
+  println("Odd Numbers Only Set: " + oddNumberOnly)
 
   val flatMapNames: Seq[Char] = nameSeq.flatMap(_.toUpperCase) //get letter out of list
   println("FlatMap: " + flatMapNames)
@@ -125,11 +134,14 @@ object TueCollectionCodeAlong extends App {
   val prependSeqOne = newSeq ++ firstSeq
   println("Prepend ++ " + prependSeqOne)
 
-  val prependSeqTwo = newSeq +: firstSeq
+  val prependSeqTwo: Seq[Any] = newSeq +: firstSeq
   println("Prepend +: " + prependSeqTwo)
 
   val prependValue = 6 +: firstSeq
   println(prependValue)
+
+
+
 
   //prependSeqTwo.flatMap(_+1)
 }
