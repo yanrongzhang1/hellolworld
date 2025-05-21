@@ -1,4 +1,4 @@
-import scala.collection.mutable
+//import scala.collection.mutable
 
 object TueAfternoonTasks extends App {
 
@@ -55,7 +55,8 @@ object TueAfternoonTasks extends App {
   //    a. Write a Map[String, Int] to represent the number of failed attempts for each
   //  user.
 //  var failedLoginUsersMap: scala.collection.mutable.Map[String, Int] = scala.collection.mutable.Map(
-  var failedLoginUsersMap: mutable.Map[String, Int] = mutable.Map(
+  //var failedLoginUsersMap: mutable.Map[String, Int] = mutable.Map(
+  var failedLoginUsersMap: Map[String, Int] = Map(
     "Alex" -> 1,
     "Adam" -> 2,
     "Jack" -> 3,
@@ -64,11 +65,11 @@ object TueAfternoonTasks extends App {
     "Joe" -> 3
   )
 
-  var failedLoginUserSeq: Seq[String] = failedLoginUsersMap.keys.toSeq
+  val failedLoginUserSeq: Seq[String] = failedLoginUsersMap.keys.toSeq
   println("user seq : " + failedLoginUserSeq)
 
   //    b.  Print the number of failed attempts for the user at index position 0.
-  var userAtIndex0 = failedLoginUserSeq.head
+  val userAtIndex0 = failedLoginUserSeq.head
   println(s"First user: $userAtIndex0, failed attempts:  " + failedLoginUsersMap(userAtIndex0))
   //  var user0 = failedLoginUserSeq[0]
 
@@ -79,12 +80,12 @@ object TueAfternoonTasks extends App {
 
   //    d. Update the user at index position 1 to have a further failed attempt.
   //  failedLoginUsersMap("Adam") =  3
-  var userAtIndex1 = failedLoginUserSeq(1)
+  val userAtIndex1 = failedLoginUserSeq(1)
   failedLoginUsersMap(userAtIndex1) = failedLoginUsersMap(userAtIndex1) + 1
   println(s"Update $userAtIndex1's failed attempts to : " + failedLoginUsersMap(userAtIndex1))
 
   //    e.Remove the user at index position 5.
-  var userAtIndex5 = failedLoginUserSeq(5)
+  val userAtIndex5 = failedLoginUserSeq(5)
   failedLoginUsersMap.remove(userAtIndex5)
   println(s"$userAtIndex5 is removed from the map. " + failedLoginUsersMap)
 
@@ -94,15 +95,15 @@ object TueAfternoonTasks extends App {
   //    question 5 if you want!)
   //  Using built-in `Set` operations (research required here) and print lines, compare two
   //    submission days detailing:
-  var day1Set: Set[String] = Set("Adam", "Alex", "Edward", "Jack")
-  var day2Set: Set[String] = Set("Emma", "Emily", "Alex", "John")
+  val day1Set: Set[String] = Set("Adam", "Alex", "Edward", "Jack")
+  val day2Set: Set[String] = Set("Emma", "Emily", "Alex", "John")
 
   //    a) Who submitted on both days
-  println("Submitted on both days: ", day1Set.intersect(day2Set))
+  println("Submitted on both days: " +  day1Set.intersect(day2Set))
   //  b) Who submitted only on the first day
-  println("Submitted only on the first day: ", day1Set.diff(day2Set))
+  println("Submitted only on the first day: " + day1Set.diff(day2Set))
   //  c) A combined list of all unique submitters
-  println("All users submitted on two days: ", day1Set.union(day2Set))
+  println("All users submitted on two days: " + day1Set.union(day2Set))
 
   //  Research:
   //    1. Write a short summary explaining how knowing the difference between `Seq` and `Set`
