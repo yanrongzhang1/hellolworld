@@ -62,17 +62,39 @@ object WedHandlingMultipleOptions extends App {
   val givenAge: Int = 18
   givenAge match {
     case age if age < 4 => println("Enter a number above 3")
-    case age if age < 8 => println("You can watch U rating films")
-    case age if age < 12 => println("You can watch 12A rating films")
-    case age if age < 15 => println("You can watch 15 rating films")
-    case age if age >= 18 => println(s"You can watch 18 rating films")
+    case age if age < 8 => println("You can watch U only films")
+    case age if age < 12 => println("You can watch U or PG rating films")
+    case age if age < 15 => println("You can watch U, PG or 12A rating films")
+    case age if age < 18 => println("You can watch U, PG, 12A or 15 rating films")
+    case age if age >= 18 => println(s"You can watch U, PG, 12A, 15 or 18 rating films")
   }
 
-  val grade: Double = 90
-  if (grade > 100) {
-    println("Enter a number greater than 0")
+  val grade: Int = 49
+  if (grade > 100 || grade < 0) {
+    println(s"$grade is not valid")
   } else if (grade >= 90) {
+    println("Your grade is A")
+  }else if (grade >= 80) {
+    println("Your grade is B")
+  }else if (grade >= 70) {
+    println("Your grade is C")
+  }else if (grade >= 60) {
+    println("Your grade is D")
+  }else if (grade >= 50) {
+    println("Your grade is E")
+  }else if (grade >= 0) {
+    println("Your grade is F")
+  }
 
+  val studentGrade: Int = 100
+  studentGrade match {
+    case g if g < 0 || g > 100  => println(s"$grade is not valid")
+    case g if g >= 90 => println("Your grade is A")
+    case g if g >= 80 => println("Your grade is B")
+    case g if g >= 70 => println("Your grade is C")
+    case g if g >= 60 => println("Your grade is D")
+    case g if g >= 50 => println("Your grade is E")
+    case g if g >= 0 => println("Your grade is F")
   }
 
   // OPTIONS (getOrElse)
@@ -87,6 +109,14 @@ object WedHandlingMultipleOptions extends App {
   println(getName(name))
   println(getName(emptyName))
 
+
+  class ChocolateBar(val filling: Option[String]) {
+    def getFilling: String = filling.getOrElse("Just chocolate")
+  }
+  val myChocolateBar1 = new ChocolateBar(Some("Cream") )
+  println("Chocolate bar filling is: " + myChocolateBar1.getFilling)
+  val myChocolateBar2 = new ChocolateBar(None)
+  println("Chocolate bar filling is: " + myChocolateBar2.getFilling)
   //TRY/CATCH
   try {
     //ALL logic - IF/ELSE, PATTERN MATCH, DEF, VAL
