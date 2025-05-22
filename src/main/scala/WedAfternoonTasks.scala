@@ -56,9 +56,10 @@ object WedAfternoonTasks extends App {
   //  2. A person is paid £0.45 per mile travelled. When they input their miles travelled it goes in as a
   //  `String` (e.g. “twenty”). Given the distance inputted, calculate the amount to be paid back being
   //    sure to use try/catch to account for errors.
-  val miles = "twenty"
+  val miles:String = "twenty"
   try {
-    val moneyToPay = miles.toInt * 0.45
+    //check negative case
+    val moneyToPay: Double = miles.toInt * 0.45
   }
   catch {
     case e: NumberFormatException => println(s"$e was not a valid input")
