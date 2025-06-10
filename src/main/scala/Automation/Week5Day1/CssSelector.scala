@@ -1,9 +1,9 @@
-package Automation.Week4Day4
+package Automation.Week5Day1
 
-import org.openqa.selenium.{By, WebDriver, WebElement}
 import org.openqa.selenium.chrome.ChromeDriver
+import org.openqa.selenium.{By, WebDriver, WebElement}
 
-object ByID extends App {
+object CssSelector extends App {
   //Instantiating the ChromeDriver for interacting with the Chrome Browser
   val driver: WebDriver = new ChromeDriver()
 
@@ -11,7 +11,8 @@ object ByID extends App {
   driver.get("https://proleed.academy/exercises/selenium/selenium-element-id-locators-practice-form.php")
 
 //  val emailAddress: WebElement = driver.findElement(By.id("email"))
-  val emailAddress: WebElement = driver.findElement(By.cssSelector("email"))
+//  val emailAddress: WebElement = driver.findElement(By.cssSelector("#email"))
+  val emailAddress: WebElement = driver.findElement(By.xpath("//input[@id='email']"))
   emailAddress.sendKeys("test@gmail.com")
   println(("Email address entered - Passed"))
 
