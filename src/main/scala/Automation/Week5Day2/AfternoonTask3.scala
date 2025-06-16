@@ -18,8 +18,8 @@ object AfternoonTask3 extends App {
   //  2. Navigate to the test URL.
   driver.get("https://demoqa.com/automation-practice-form")
 
-  driver.manage().window.setPosition(new Point(0, 0))
-  driver.manage().window().maximize()
+//  driver.manage().window.setPosition(new Point(0, 0))
+//  driver.manage().window().maximize()
 
 
   //  3. Locate these elements:
@@ -64,12 +64,14 @@ object AfternoonTask3 extends App {
     //
     //    val mobileNumber: WebElement = driver.findElement(By.xpath("//*[@placeholder='Mobile Number']"))
     //    mobileNumber.sendKeys("1234567890")
+//    val jsExecutor = driver.asInstanceOf[JavascriptExecutor]
+//    jsExecutor.executeScript("arguments[0].scrollIntoView(true);", submit);
+//    submit.click()
 
-    //          val actions: Actions = new Actions(driver)
-    //          actions.moveToElement(submit)
-    //          actions.perform()
-    driver.asInstanceOf[JavascriptExecutor].executeScript("arguments[0].scrollIntoView(true);", submit);
-    submit.click()
+    val action1: Actions = new Actions(driver)
+    action1.moveToElement(submit).click().perform()
+//    submit.click()
+
     println("submit is clicked")
   }
   //  5. Print meaningful messages for each condition check and action taken.
