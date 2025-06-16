@@ -11,8 +11,8 @@ object Task2 extends App {
 
   val driver: WebDriver = new ChromeDriver()
   //Implicit wait
-  val duration: java.time.Duration = Duration.ofSeconds(10)
-  driver.manage.timeouts.implicitlyWait(duration)
+//  val duration: java.time.Duration = Duration.ofSeconds(10)
+//  driver.manage.timeouts.implicitlyWait(duration)
 
   driver.get("https://the-internet.herokuapp.com/login")
 
