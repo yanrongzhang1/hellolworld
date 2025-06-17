@@ -23,6 +23,7 @@ object AfternoonTask extends App {
   for (i <- rows.indices) {
     val countryElement: WebElement = rows(i).findElement(By.cssSelector("td:nth-child(2)"))
     println(s"Row ${i + 1}: ${countryElement.getText}")
+//    cells.get(1).getText
 
     //  • Use JavaScript Executor to highlight each row as it’s read.
     val jsExecutor = driver.asInstanceOf[JavascriptExecutor]
