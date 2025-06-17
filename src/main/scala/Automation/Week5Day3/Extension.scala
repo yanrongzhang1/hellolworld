@@ -65,8 +65,13 @@ object Extension extends App {
 //
 //  driver.switchTo().frame(0)
 
-  val iframeList: List[WebElement] = driver.findElements(By.tagName("iframe")).asScala.toList
-  println(iframeList.size)
+//  val iframeList: List[WebElement] = driver.findElements(By.tagName("iframe")).asScala.toList
+//  println(iframeList.size)
+  println("Inside outer frame")
+  // We don't need to switch to `frame2` here as it isn't a traditional nested iframe, it is part of the html content which makes up `frame1`
+  val innerText = driver.findElement(By.tagName("body")).getText // Interact with an element inside the nested frame
+  println(s"Text inside nested frame:\n$innerText")
+  driver.switchTo().defaultContent() // Switch back to the main content
 
    driver.quit()
 }
